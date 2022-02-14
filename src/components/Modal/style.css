@@ -1,0 +1,15 @@
+.bodyModal {
+  display: flex;
+  border-radius: 10%;
+  margin: 10% auto 0 auto;
+  width: 600px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+
+
+  padding: 10px;
+  background-color: #897c70;
+}
