@@ -1,0 +1,15 @@
+.bodyTheme {
+  display: grid;
+  grid-template-columns: auto auto;
+  gap: 1rem;
+}
+
+@media (max-width: 600px) {
+  .bodyTheme {
+    display: flex;
+    flex-direction: column;
+  }
+  .bodyButtons {
+    margin-top: 10%;
+  }
+}

@@ -1,46 +1,49 @@
-import React, { useEffect, useState } from "react";
 import "./style.css";
-import { Modal } from "../../components";
-import { getQuiz } from "../../services/quizService";
+
+import React, { useState } from "react";
+
+import { Button } from "../../components";
+import { useNavigate } from "react-router-dom";
 
 const Home: React.FC = () => {
   const [name, setName] = useState("");
-  const [form, setForm] = useState(false);
+  const history = useNavigate();
 
-  const handleForm = () => {
-    setForm(!form);
+  const handleClick = () => {
+    localStorage.setItem("name", name);
+    history("/difficulty");
   };
-
-  useEffect(() => {
-    const handleQuiz = async () => {
-      const data = await getQuiz();
-      console.log(data);
-      if (data) {
-      }
-    };
-    handleQuiz();
-  }, []);
 
   return (
     <div className="bodyHome">
-      <label className="nameLabel">{name}</label>
-      {form ? (
-        <>
-          <Modal />
-          <button onClick={handleForm}>iniciar</button>
-        </>
-      ) : (
-        <div className="bodyForm">
-          <label>Digite seu nome </label>
+      <div className="bodyForm">
+        <h1>TRIVA</h1>
+        <h2>Enter your name</h2>
+        <label style={{ display: "block", marginTop: 10, marginBottom: 5 }}>
           <input
-            placeholder="Nome"
             type="text"
-            style={{ marginTop: 10, marginBottom: 10 }}
+            placeholder="Name"
+            value={name}
             onChange={(e) => setName(e.target.value)}
+            style={{
+              width: "100%",
+              padding: "8px 12px",
+              fontSize: "16px",
+              borderRadius: "6px",
+              border: "1px solid #ccc",
+              marginTop: 4,
+              boxSizing: "border-box",
+            }}
           />
-          <button onClick={handleForm}>iniciar</button>
-        </div>
-      )}
+        </label>
+
+        <Button
+          handleEvent={handleClick}
+          text="Start"
+          customStyles={{ width: "100%" }}
+          disable={name.length < 3 ? true : false}
+        />
+      </div>
     </div>
   );
 };
