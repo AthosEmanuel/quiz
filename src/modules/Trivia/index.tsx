@@ -50,10 +50,6 @@ const Trivia: React.FC = () => {
     }
   };
 
-  const handleBack = () => {
-    history("/theme");
-  };
-
   if (questions.length === 0) return <p>Loading questions...</p>;
 
   if (showResult) {

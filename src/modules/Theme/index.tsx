@@ -1,12 +1,10 @@
 import "./style.css";
 
-import { useLocation, useNavigate } from "react-router-dom";
-
 import { Button } from "../../components";
+import { useNavigate } from "react-router-dom";
 
 const Theme: React.FC = () => {
   const history = useNavigate();
-  const location = useLocation();
 
   const handleClick = (id: any) => {
     localStorage.setItem("theme", id);

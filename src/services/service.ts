@@ -4,7 +4,7 @@ const api = "https://opentdb.com/api.php?amount=10";
 
 const getQuestions = async (category: any, difficulty: any) => {
   try {
-    if (difficulty == 4) {
+    if (Number(difficulty) === 4) {
       const { data } = await axios.get(
         `${api}&category=${category}&type=multiple`
       );
