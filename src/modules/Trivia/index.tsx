@@ -29,7 +29,7 @@ const Trivia: React.FC = () => {
       }
     };
     handleTrivia();
-  }, []);
+  }, [theme, difficulty]);
 
   const handleAnswer = (
     selectedAnswer: string,
